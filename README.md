@@ -1,6 +1,8 @@
 # React + Redux Truffle Box
 
-This box comes with everything you need to start using smart contracts from a react app. This is as barebones as it gets, so nothing stands in your way.
+This box comes with everything you need to start using smart contracts from a basic React + Redux app. This is as barebones as it gets, so nothing stands in your way.
+
+This repo is a clone of the official React Truffle box - just adding Redux for client side state handling and OpenZeppelin library for secure Solidity contracts. It's nothing fancy, I'm still learning this stuff.
 
 ## Installation
 
@@ -11,7 +13,7 @@ This box comes with everything you need to start using smart contracts from a re
 
 2. Download the box. This also takes care of installing the necessary dependencies.
     ```javascript
-    truffle unbox react
+    truffle unbox teemuteemu/truffle_react_redux
     ```
 
 3. Run the development console.

@@ -13,7 +13,7 @@ This repo is a clone of the official React Truffle box - just adding Redux for c
 
 2. Download the box. This also takes care of installing the necessary dependencies.
     ```javascript
-    truffle unbox teemuteemu/truffle_react_redux
+    truffle unbox teemuteemu/truffle_react_redux.git
     ```
 
 3. Run the development console.

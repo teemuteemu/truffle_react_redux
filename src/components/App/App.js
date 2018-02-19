@@ -4,13 +4,7 @@ import './App.css'
 
 class App extends Component {
   componentWillMount() {
-    this.props.connectWeb3()
-      .then((web3) => {
-        this.props.deploySimpleStorage(web3)
-          .then(() => {
-            this.props.get();
-          });
-      });
+    this.props.get();
   }
 
   onClick() {

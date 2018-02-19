@@ -1,7 +1,6 @@
 import { connect } from 'react-redux'
 
 import App from './App'
-import { connectWeb3 } from 'reducers/modules/web3'
 import { deploy, get, set } from 'reducers/modules/SimpleStorage'
 
 const mapStateToProps = (state) => {
@@ -14,7 +13,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    connectWeb3: () => dispatch(connectWeb3()),
     deploySimpleStorage: (web3) => dispatch(deploy(web3)),
     get: () => dispatch(get()),
     set: (value) => dispatch(set(value)),

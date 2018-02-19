@@ -1,14 +1,16 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
 
-import web3 from './modules/web3'
+import web3Store from './modules/web3'
 import SimpleStorage from './modules/SimpleStorage'
 
-const rootReducer = combineReducers({
-  web3,
-  SimpleStorage,
-});
+const rootReducer = (web3, contracts) => {
+  return combineReducers({
+    web3: web3Store(web3),
+    SimpleStorage: SimpleStorage(contracts.SimpleStorage),
+  });
+};
 
 const middleware = applyMiddleware(thunk);
 
-export default createStore(rootReducer, middleware);
+export default (web3, contracts) => createStore(rootReducer(web3, contracts), middleware);

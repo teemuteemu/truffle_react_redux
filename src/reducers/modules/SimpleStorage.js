@@ -38,3 +38,11 @@ export function set(value) {
     });
   }
 }
+
+export function eventListener(dispatch, getState) {
+  const { SimpleStorage } = getState();
+  const events = SimpleStorage.instance.SetValue();
+
+  events.watch((err, res) => get()(dispatch, getState));
+}
+

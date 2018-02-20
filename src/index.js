@@ -29,6 +29,8 @@ function setupWeb3Contracts() {
       if (result && web3) {
         Object.keys(contracts)
           .forEach(contract => contracts[contract].setProvider(web3.currentProvider));
+      } else {
+        throw Error('Problems with web3.js');
       }
 
       const deploys = Object.keys(contracts)

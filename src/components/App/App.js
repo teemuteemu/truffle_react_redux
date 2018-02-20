@@ -3,10 +3,6 @@ import React, { Component } from 'react'
 import './App.css'
 
 class App extends Component {
-  componentWillMount() {
-    this.props.get();
-  }
-
   onClick() {
     const value = parseInt(this.refs.input.value, 10);
     const { set } = this.props;

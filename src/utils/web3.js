@@ -10,7 +10,7 @@ function getLocalProvider() {
   return new Web3.providers.HttpProvider('http://127.0.0.1:9545');
 }
 
-const getWeb3 = () => {
+export const getWeb3 = () => {
   return new Promise(function(resolve, reject) {
     // Wait for loading completion to avoid race conditions with web3 injection timing.
     window.addEventListener('load', function() {
@@ -23,5 +23,3 @@ const getWeb3 = () => {
     })
   })
 }
-
-export default getWeb3

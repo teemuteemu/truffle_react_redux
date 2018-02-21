@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import contract from 'truffle-contract'
 
-import getWeb3 from 'utils/getWeb3'
+import { getWeb3 } from 'utils/web3'
 import { deployContracts } from 'utils/contracts'
 import SimpleStorageContract from 'build/contracts/SimpleStorage.json'
 

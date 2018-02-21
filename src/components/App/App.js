@@ -13,13 +13,9 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <nav className="navbar pure-menu pure-menu-horizontal">
-            <a href="#" className="pure-menu-heading pure-menu-link">Truffle Box</a>
-        </nav>
-
+      <div className="app">
         <main className="container">
-          <div className="pure-g">
+          <div className="value">
             <p>The stored value is: {this.props.value}</p>
             <input type="text" ref="input"></input>
             <button onClick={this.onClick.bind(this)}>Set</button>

@@ -2,12 +2,12 @@ import { createStore, applyMiddleware, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
 
 import web3Store from './modules/web3'
-import SimpleStorage, { eventListener as simpleStorageEventListener } from './modules/SimpleStorage'
+import SimpleStorageStore, { eventListener as simpleStorageEventListener } from './modules/SimpleStorage'
 
 const rootReducer = (web3, contracts) => {
   return combineReducers({
     web3: web3Store(web3),
-    SimpleStorage: SimpleStorage(contracts.SimpleStorage),
+    SimpleStorage: SimpleStorageStore(contracts.SimpleStorage),
   });
 };
 

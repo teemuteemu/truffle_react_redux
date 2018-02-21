@@ -4,10 +4,11 @@ import { Provider } from 'react-redux'
 import contract from 'truffle-contract'
 
 import getWeb3 from 'utils/getWeb3'
+import { deployContracts } from 'utils/contracts'
 import SimpleStorageContract from 'build/contracts/SimpleStorage.json'
 
 const SimpleStorage = contract(SimpleStorageContract)
-const contracts = {
+const _contracts = {
   SimpleStorage,
 };
 
@@ -21,35 +22,8 @@ ReactDOM.render(
   root
 );
 
-function setupWeb3Contracts() {
-  return getWeb3()
-    .then(web3 => {
-
-      // Set web3 provider for each contract
-      Object.keys(contracts)
-        .forEach(contract => contracts[contract].setProvider(web3.currentProvider));
-
-      // Deploy each contract and store in contracts object (not the nicest way)jj
-      const deploys = Object.keys(contracts)
-        .map(contract => {
-          return contracts[contract].deployed()
-            .then(instance => {
-              contracts[contract] = instance;
-              return Promise.resolve(instance);
-            });
-        });
-
-      return Promise.all(deploys)
-        .then(instances => {
-          return {
-            web3,
-            contracts,
-          }
-        });
-    });
-}
-
-setupWeb3Contracts()
+getWeb3()
+  .then(web3 => deployContracts(web3, _contracts))
   .then(({ web3, contracts }) => {
       ReactDOM.render(
         <Provider store={store(web3, contracts)}>

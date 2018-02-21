@@ -23,16 +23,13 @@ ReactDOM.render(
 
 function setupWeb3Contracts() {
   return getWeb3()
-    .then(result => {
-      const { web3 } = result;
+    .then(web3 => {
 
-      if (result && web3) {
-        Object.keys(contracts)
-          .forEach(contract => contracts[contract].setProvider(web3.currentProvider));
-      } else {
-        throw Error('Problems with web3.js');
-      }
+      // Set web3 provider for each contract
+      Object.keys(contracts)
+        .forEach(contract => contracts[contract].setProvider(web3.currentProvider));
 
+      // Deploy each contract and store in contracts object (not the nicest way)jj
       const deploys = Object.keys(contracts)
         .map(contract => {
           return contracts[contract].deployed()

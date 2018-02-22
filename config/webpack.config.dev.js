@@ -80,7 +80,7 @@ module.exports = {
       build: path.resolve(__dirname, '../build/'),
       components: path.resolve(__dirname, '../src/components/'),
       utils: path.resolve(__dirname, '../src/utils/'),
-      reducers: path.resolve(__dirname, '../src/reducers'),
+      store: path.resolve(__dirname, '../src/store'),
     }
   },
 

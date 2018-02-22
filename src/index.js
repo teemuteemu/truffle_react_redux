@@ -8,12 +8,12 @@ import { deployContracts } from 'utils/contracts'
 import SimpleStorageContract from 'build/contracts/SimpleStorage.json'
 
 const SimpleStorage = contract(SimpleStorageContract)
-const _contracts = {
+const contracts = {
   SimpleStorage,
 };
 
 import App from 'components/App/index'
-import store from 'reducers/configureStore'
+import configureStore from 'store'
 
 const root = document.getElementById('root');
 
@@ -23,10 +23,11 @@ ReactDOM.render(
 );
 
 getWeb3()
-  .then(web3 => deployContracts(web3, _contracts))
-  .then(({ web3, contracts }) => {
+  .then(web3 => deployContracts(web3, contracts))
+  .then(configureStore)
+  .then(store => {
       ReactDOM.render(
-        <Provider store={store(web3, contracts)}>
+        <Provider store={store}>
           <App />
         </Provider>,
         root

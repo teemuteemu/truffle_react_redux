@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 
 import App from './App'
-import { get, set } from 'reducers/modules/SimpleStorage'
+import { get, set } from 'store/modules/SimpleStorage'
 
 const mapStateToProps = (state) => {
   return {

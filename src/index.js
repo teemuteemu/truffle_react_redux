@@ -1,18 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import contract from 'truffle-contract'
 
 import { getWeb3 } from 'utils/web3'
 import { deployContracts } from 'utils/contracts'
-import SimpleStorageContract from 'build/contracts/SimpleStorage.json'
-
-const SimpleStorage = contract(SimpleStorageContract)
-const contracts = {
-  SimpleStorage,
-};
 
 import App from 'components/App/index'
+import contracts from './contracts'
 import configureStore from 'store'
 
 const root = document.getElementById('root');
